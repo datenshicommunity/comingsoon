@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Coming Soon Datenshi</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/Update1-Coming-Soon-Site.css">
+</head>
+
+<body style="background: var(--bs-purple);">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="row">
+            <div class="col-md-12 mt-4"><img class="img-fluid" src="https://raw.githubusercontent.com/datenshicommunity/assets/master/logo.png" width="320" height="320"></div>
+            <div class="col-12 col-md-12 col-xl-12 offset-xl-0">
+                <div id="countdown">
+                    <ul class="list-unstyled d-flex flex-row" style="max-width: 700px;">
+                        <li style="font-size: 69px;"><span id="days" class="span" style="font-size: 50px;color: var(--bs-white);">00</span><span class="d-flex justify-content-center fs-5 fs-lg-1" style="color: var(--bs-white);">Days</span></li>
+                        <li style="font-size: 69px;"><span id="hours" class="span" style="font-size: 50px;color: var(--bs-white);">00</span><span class="d-flex justify-content-center fs-5 fs-lg-1" style="color: var(--bs-white);">Hours</span></li>
+                        <li style="font-size: 69px;"><span id="minutes" class="span" style="font-size: 50px;color: var(--bs-white);">00</span><span class="d-flex justify-content-center fs-5 fs-lg-1" style="color: var(--bs-white);">Minutes</span></li>
+                        <li style="font-size: 69px;"><span id="seconds" class="span" style="font-size: 50px;color: var(--bs-white);">00</span><span class="d-flex justify-content-center fs-5 fs-lg-1" style="color: var(--bs-white);">Seconds</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12 mt-5">
+                <h1 id="titlesurprise" style="font-size: 50px;color: var(--bs-white);">COMING SOON</h1>
+            </div>
+            <div class="col-md-12 mt-3" style="font-size: 34px;">
+                <div class="text-center border-dark col m-auto"><span class="text-center m-auto py-4" id="fb"></span></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        // Set the target date and time for the countdown
+        const targetDate = new Date("2024-06-10T15:50:00+07:00").getTime();
+
+        // Update the countdown every 1 second
+        const countdownInterval = setInterval(function() {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Find the time difference between now and the target date
+            const distance = targetDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the respective elements
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("titlesurprise").innerHTML = "The countdown is over!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
